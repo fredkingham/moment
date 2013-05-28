@@ -995,7 +995,7 @@
         var input = config._i,
             format = config._f;
 
-        if (input === null || input === '') {
+        if (input === null) {
             return null;
         }
 
