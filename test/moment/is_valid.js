@@ -73,6 +73,7 @@ exports.is_valid = {
         test.equal(moment('').isValid(), false, 'empty string "fail"');
         test.equal(moment('', "YYYY-MM-DD").isValid(), false, 'invalid format for empty String');
         test.equal(moment('fail').isValid(), false, 'string "fail"');
+
         test.done();
     },
 
