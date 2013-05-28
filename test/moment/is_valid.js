@@ -59,6 +59,7 @@ exports.is_valid = {
         test.equal(moment('2020-01-01', ['YYYY-MM-DD', 'YYYY-DD-MM']).isValid(), true, 'valid on both');
         test.equal(moment('2020-13-01', ['YYYY-MM-DD', 'YYYY-DD-MM']).isValid(), true, 'valid on last');
 
+
         test.equal(moment('12-13-2012', ['DD-MM-YYYY', 'YYYY-MM-DD']).isValid(), false, 'month rollover');
         test.equal(moment('12-13-2012', ['DD-MM-YYYY', 'DD-MM-YYYY']).isValid(), false, 'month rollover');
         test.equal(moment('38-12-2012', ['DD-MM-YYYY']).isValid(), false, 'day rollover');
@@ -67,8 +68,10 @@ exports.is_valid = {
     },
 
     "string nonsensical" : function (test) {
-        test.expect(1);
+        test.expect(3);
 
+        test.equal(moment('').isValid(), false, 'empty string "fail"');
+        test.equal(moment('', "YYYY-MM-DD").isValid(), false, 'invalid format for empty String');
         test.equal(moment('fail').isValid(), false, 'string "fail"');
         test.done();
     },
